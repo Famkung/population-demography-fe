@@ -21,10 +21,15 @@ export const TimelineStyle = styled.div`
   }
   .tick {
     position: absolute;
-    top: -6px;
     width: 1px;
-    height: 12px;
-    background-color: #333;
+    height: 6px;
+    background-color: #aaa;
+  }
+  .tick-short{
+    position: absolute;
+    width: 1px;
+    height: 3px;
+    background-color: #aaa;
   }
   .tick-label {
     position: absolute;
@@ -32,7 +37,7 @@ export const TimelineStyle = styled.div`
     transform: translateX(-50%);
     font-size: 12px;
     white-space: nowrap;
-    color: #555;
+    color: #aaa;
   }
   .marker {
     position: absolute;

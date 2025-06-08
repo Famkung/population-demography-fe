@@ -53,6 +53,8 @@ function App() {
   return (
     <AppStyles>
       <div className="App">
+        <h2>Population growth per country, 1950 to 2021</h2>
+        <p>Click on the legend below to  filter by continent 👇</p>
       <div className='region'>
         <div className='region-title'>Region</div>
         <div className='region-row'>

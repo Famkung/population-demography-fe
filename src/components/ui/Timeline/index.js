@@ -26,18 +26,28 @@ const Timeline = ({ payload , onYearChange }) => {
 
   const renderTicks = () => {
     const ticks = []
-    for (let i = 0; i <= totalYears; i += 4) {
+  
+    for (let i = 0; i <= totalYears; i++) {
       const y = startYear + i
       const percent = (i / totalYears) * 100
+  
       ticks.push(
         <Fragment key={y}>
-          <div className="tick" style={{ left: `${percent}%` }} />
-          <div className="tick-label" style={{ left: `${percent}%` }}>{y}</div>
+      
+          {i % 4 === 0 ? (
+            <>
+              <div className="tick" style={{ left: `${percent}%` }} />
+              <div className="tick-label" style={{ left: `${percent}%` }}>{y}</div>
+            </>
+          ) :    <div className="tick-short" style={{ left: `${percent}%` }} />}
         </Fragment>
       )
     }
+  
     return ticks
   }
+  
+  
 
   const onMouseDown = (e) => {
     e.preventDefault()
@@ -63,10 +73,24 @@ const Timeline = ({ payload , onYearChange }) => {
     window.removeEventListener('mouseup', onMouseUp)
   }
 
+  const onClickTimeline = (e) => {
+    if (!timelineRef.current) return
+    const timelineRect = timelineRef.current.getBoundingClientRect()
+    let relativeX = e.clientX - timelineRect.left
+    relativeX = Math.max(0, Math.min(relativeX, timelineRect.width))
+    const percent = relativeX / timelineRect.width
+    const newYear = Math.round(startYear + percent * totalYears)
+    setYear(newYear)
+  }
+
   return (
     <TimelineStyle>
       <div className="timeline" ref={timelineRef} style={{ position: 'relative', userSelect: 'none' }}>
-        <div className="timeline-line" style={{ position: 'relative' }}>
+        <div
+          className="timeline-line"
+          style={{ position: 'relative' , cursor: 'pointer' }}
+          onClick={onClickTimeline}
+        >
           <div
             className="marker"
             ref={markerRef}

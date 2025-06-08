@@ -40,7 +40,11 @@ const Chart = (data) => {
                             <div
                             className='graph'
                             style={{ width: `${Math.ceil(item.population / max * 100)}%` , backgroundColor: item.color}}
-                            ></div>
+                            >
+                                <div className='flag'>  
+                                    <img src={`/${item.country}.png`} className='flag-image'/>
+                                </div>
+                            </div> 
                         <div>{Number(item.population).toLocaleString('en-US')}</div>
                     </motion.div>
                 ))}
