@@ -2,7 +2,7 @@
 
 ## 📦 Requirements
 
-  - Node.js (v14 or higher recommended)
+  - Node.js (v20 or higher recommended)
   - npm (comes with Node.js)
 
 ## ⚙️ Setup Instructions
