@@ -12,6 +12,7 @@ export const TimelineStyle = styled.div`
     margin-bottom: 30px;
   }
   .timeline {
+    cursor: pointer;
     position: relative;
   }
   .timeline-line {
@@ -40,6 +41,7 @@ export const TimelineStyle = styled.div`
     color: #aaa;
   }
   .marker {
+    cursor: pointer;
     position: absolute;
     top: -12px; 
     width: 0;
@@ -47,6 +49,7 @@ export const TimelineStyle = styled.div`
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-top: 12px solid black;
-    transition: left 0.2s ease-out;
-  }
+    transition: left 0.5s ease;
+}
+
 `
